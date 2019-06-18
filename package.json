@@ -1,0 +1,38 @@
+{
+    "name": "firebase-authentication-to-bigquery-export",
+    "version": "1.0.2",
+    "description": "An automatic tool for copying and converting Firestore data to BigQuery.",
+    "main": "lib/index.js",
+    "files": [
+        "lib"
+    ],
+    "scripts": {
+        "build": "tsc",
+        "prepublishOnly": "npm run build"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/keito5656/firebase-authentication-to-bigquery-export.git"
+    },
+    "keywords": [
+        "Firebase",
+        "BigQuery",
+        "Export",
+        "Authentication",
+        "Firebase Authentication"
+    ],
+    "author": "keito5656 <b08109@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/keito5656/firebase-authentication-to-bigquery-export/issues"
+    },
+    "homepage": "https://github.com/keito5656/firebase-authentication-to-bigquery-export#readme",
+    "dependencies": {
+        "@google-cloud/bigquery": "^2.1.0",
+        "firebase-admin": "~8.1.0",
+        "tsc": "^1.20150623.0"
+    },
+    "devDependencies": {
+        "typescript": "^3.5.2"
+    }
+}
