@@ -52,14 +52,23 @@ export async function createBigQueryTables() {
     if (!datasetIsExists[0]) {
         await bigQuery.createDataset(datasetID)
     }
+    const schema = [
+        { name: 'userId', type: 'STRING', mode: 'REQUIRED' },
+        { name: 'mail', type: 'string' },
+        { name: 'creationTime', type: 'integer' },
+        { name: 'lastSignInTime', type: 'integer' },
+        { name: 'displayName', type: 'string' },
+        { name: 'photoURL', type: 'string' },
+        { name: 'phoneNumber', type: 'string' },
+        { name: 'tokensValidAfterTime', type: 'integer' },
+    ]
     const options = {
         name: undefined,
         friendlyName: "auth",
         partitioning: undefined,
         view: undefined,
-        schema: "userId:string, mail:string, creationTime:integer, lastSignInTime:integer, emailVerified:boolean, disabled:boolean, displayName:string, photoURL:string, phoneNumber:string, tokensValidAfterTime:integer"
+        schema: schema
     }
-
     return bigQuery.dataset(datasetID).createTable(tableName, options)
 }
 
