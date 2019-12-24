@@ -25,8 +25,8 @@
     },
     "homepage": "https://github.com/keito5656/firebase-authentication-to-bigquery-export#readme",
     "dependencies": {
-        "@google-cloud/bigquery": "^2.1.0",
-        "firebase-admin": "~8.1.0"
+        "@google-cloud/bigquery": "^4.1.8",
+        "firebase-admin": "^8.4.0"
     },
     "devDependencies": {
         "typescript": "^3.5.2"
