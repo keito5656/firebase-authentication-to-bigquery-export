@@ -62,6 +62,7 @@ export async function createBigQueryTables() {
         { name: 'phoneNumber', type: 'string' },
         { name: 'tokensValidAfterTime', type: 'integer' },
         { name: 'emailVerified', type: 'bool' },
+        { name: 'disabled', type: 'bool' },
     ]
     const options = {
         name: undefined,
