@@ -61,6 +61,7 @@ export async function createBigQueryTables() {
         { name: 'photoURL', type: 'string' },
         { name: 'phoneNumber', type: 'string' },
         { name: 'tokensValidAfterTime', type: 'integer' },
+        { name: 'emailVerified', type: 'bool' },
     ]
     const options = {
         name: undefined,
