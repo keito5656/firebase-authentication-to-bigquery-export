@@ -63,6 +63,7 @@ export async function createBigQueryTables() {
         { name: 'tokensValidAfterTime', type: 'integer' },
         { name: 'emailVerified', type: 'bool' },
         { name: 'disabled', type: 'bool' },
+        { name: 'providerId', type: 'string' }
     ]
     const options = {
         name: undefined,
@@ -135,6 +136,8 @@ export async function copyToBigQuery(verbose = false) {
             tokensValidAfterTime = new Date(x.tokensValidAfterTime).getTime() / 1000
         }
 
+        const providerId = x.providerData.map(y => { return y.providerId }).toString()
+
         return {
             userId: x.uid,
             mail: x.email ? x.email : null,
@@ -143,6 +146,7 @@ export async function copyToBigQuery(verbose = false) {
             displayName: x.displayName ? x.displayName : null,
             phoneNumber: x.phoneNumber ? x.phoneNumber : null,
             photoURL: x.photoURL ? x.photoURL : null,
+            providerId: providerId,
             tokensValidAfterTime: tokensValidAfterTime,
             creationTime: creationTime,
             lastSignInTime: lastSignInTime
