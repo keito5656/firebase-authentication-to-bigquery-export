@@ -151,10 +151,29 @@ export async function copyToBigQuery(verbose = false) {
 
     if (verbose) { console.log("inserting data ...") }
 
-    return bigQuery.dataset(datasetID).table(tableName).insert(rows)
-        .then(() => {
-            if (verbose) console.log('Successfully copied authentication to BigQuery.')
-        })
+    let index2 = 0
+    let init: Array<Array<{}>> = [[]]
+    const data = rows.reduce((pre, cur) => {
+
+        if (pre[index2].length >= 1000)
+            index2++
+
+        if (!pre[index2])
+            pre[index2] = []
+
+        pre[index2].push(cur)
+
+        return pre
+    }, init)
+
+    const tables = bigQuery.dataset(datasetID).table(tableName)
+
+    return Promise.all(data.map(async x => {
+        await new Promise(resolve => setTimeout(resolve, 0.5))
+        return tables.insert(x)
+    })).then(() => {
+        if (verbose) console.log('Successfully copied authentication to BigQuery.')
+    })
         .catch(e => {
             let errorMessage = ''
 
