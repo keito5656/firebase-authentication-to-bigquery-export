@@ -144,7 +144,7 @@ export async function copyToBigQuery(verbose = false) {
             displayName: x.displayName ? x.displayName : null,
             phoneNumber: x.phoneNumber ? x.phoneNumber : null,
             photoURL: x.photoURL ? x.photoURL : null,
-            providerId: x.providerData.map((provider) => { return provider.providerId; }),
+            providerIds: x.providerData.map((provider) => { return provider.providerId; }),
             tokensValidAfterTime: tokensValidAfterTime,
             creationTime: creationTime,
             lastSignInTime: lastSignInTime
