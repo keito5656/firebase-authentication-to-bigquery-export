@@ -60,6 +60,7 @@ export async function createBigQueryTables() {
         { name: 'displayName', type: 'string' },
         { name: 'photoURL', type: 'string' },
         { name: 'phoneNumber', type: 'string' },
+        { name; 'providerIds', type: 'STRING', mode: 'REPEATED' },
         { name: 'tokensValidAfterTime', type: 'integer' },
         { name: 'emailVerified', type: 'bool' },
         { name: 'disabled', type: 'bool' },
@@ -143,6 +144,7 @@ export async function copyToBigQuery(verbose = false) {
             displayName: x.displayName ? x.displayName : null,
             phoneNumber: x.phoneNumber ? x.phoneNumber : null,
             photoURL: x.photoURL ? x.photoURL : null,
+            providerId: x.providerData.map((provider) => { return provider.providerId; }),
             tokensValidAfterTime: tokensValidAfterTime,
             creationTime: creationTime,
             lastSignInTime: lastSignInTime
