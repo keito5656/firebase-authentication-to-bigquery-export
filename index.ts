@@ -60,7 +60,7 @@ export async function createBigQueryTables() {
         { name: 'displayName', type: 'string' },
         { name: 'photoURL', type: 'string' },
         { name: 'phoneNumber', type: 'string' },
-        { name; 'providerIds', type: 'STRING', mode: 'REPEATED' },
+        { name: 'providerIds', type: 'STRING', mode: 'REPEATED' },
         { name: 'tokensValidAfterTime', type: 'integer' },
         { name: 'emailVerified', type: 'bool' },
         { name: 'disabled', type: 'bool' },
