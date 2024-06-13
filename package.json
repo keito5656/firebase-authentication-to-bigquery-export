@@ -1,6 +1,6 @@
 {
     "name": "firebase-authentication-to-bigquery-export",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "description": "An automatic tool for copying and converting Firestore data to BigQuery.",
     "main": "lib/index.js",
     "scripts": {
